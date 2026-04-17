@@ -1,0 +1,171 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Scriptures API",
+    "version": "1.0.0",
+    "description": "API for scriptures and notes"
+  },
+  "servers": [
+    {
+      "url": "https://scripture-api-q66z.onrender.com"
+    }
+  ],
+
+  "paths": {
+  "/scriptures": {
+    "get": {
+      "summary": "Get all scriptures",
+      "responses": {
+        "200": {
+          "description": "List of scriptures"
+        }
+      }
+    },
+    "post": {
+      "summary": "Create a scripture",
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "example": {
+              "reference": "John 3:16",
+              "text": "For God so loved the world..."
+            }
+          }
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "Created"
+        }
+      }
+    }
+  },
+
+  "/scriptures/{id}": {
+    "put": {
+      "summary": "Update a scripture",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "example": {
+              "text": "Updated scripture text"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Updated"
+        }
+      }
+    },
+    "delete": {
+      "summary": "Delete a scripture",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Deleted"
+        }
+      }
+    }
+  },
+
+  "/notes": {
+    "get": {
+      "summary": "Get all notes",
+      "responses": {
+        "200": {
+          "description": "List of notes"
+        }
+      }
+    },
+    "post": {
+      "summary": "Create a note",
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "example": {
+              "content": "This verse teaches faith"
+            }
+          }
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "Created"
+        }
+      }
+    }
+  },
+
+  "/notes/{id}": {
+    "put": {
+      "summary": "Update a note",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "example": {
+              "content": "Updated note text"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Updated"
+        }
+      }
+    },
+    "delete": {
+      "summary": "Delete a note",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Deleted"
+        }
+      }
+    }
+  }
+}}
